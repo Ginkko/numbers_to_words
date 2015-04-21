@@ -2,7 +2,7 @@ class Fixnum
   define_method(:numbers_to_words) do
     zero_digit = { 0 => "zero" }
     single_digits = { 1 => "one", 2 => "two", 3 => "three", 4 => "four", 5 => "five", 6 => "six", 7 => "seven", 8 => "eight", 9 => "nine" }
-    teen_digits = {10 => "ten", 11 => "eleven", 12 => "twelve", 13 => "thirteen", 14 => "fourteen", 15 => "fifteen", 16 => "sixteen", 17 => "seventeen", 18 => "eighteen", 19 => "nineteen"}
+    teen_digits = {0 => "ten", 1 => "eleven", 2 => "twelve", 3 => "thirteen", 4 => "fourteen", 5 => "fifteen", 6 => "sixteen", 7 => "seventeen", 8 => "eighteen", 9 => "nineteen"}
     number_container = self.to_s().split('')
     new_number_container = []
     final_output = ""
@@ -15,6 +15,18 @@ class Fixnum
 
       if number.eql?(0)
         return zero_digit.fetch(number)
+
+      elsif new_number_container[-2].eql?(1)
+        new_number_container.delete_at(-2)
+        final_output = final_output.concat(teen_digits.fetch(new_number_container[-1]).concat(" "))
+
+
+
+
+
+
+
+
       else
         final_output = final_output.concat(single_digits.fetch(number).concat(" "))
 
