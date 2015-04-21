@@ -11,6 +11,10 @@ describe('Fixnum#numbers_to_words') do
 
 #Numbers to words takes a number from 0 to 9 and converts it to a word.
 
+  it("takes a number from 0 to 9 and converts it into a word") do
+    expect(4.numbers_to_words()).to(eq("four"))
+  end
+
 #Numbers to words takes a number from 11-19 and converts it to a word.
 
 
